@@ -34,7 +34,8 @@ public class Admin4Servlet extends HttpServlet {
 		final String id = "OUBO";
 		final String pass = "TOUSEN";
 		
-		
+		String sNumA = request.getParameter("numa");
+		String sNumB = request.getParameter("numb");
 		
 		try {
 			Class.forName(driverName);
@@ -43,6 +44,8 @@ public class Admin4Servlet extends HttpServlet {
 					connection.prepareStatement(
 							""
 						);
+			st.setString(1, sNumA);
+			st.setString(2, sNumB);
 			
 			st.executeUpdate();
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/admin4.jsp");
