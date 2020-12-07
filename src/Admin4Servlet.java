@@ -37,6 +37,7 @@ public class Admin4Servlet extends HttpServlet {
 		String sNumA = request.getParameter("numa");
 		String sNumB = request.getParameter("numb");
 		
+		
 		try {
 			Class.forName(driverName);
 			Connection connection=DriverManager.getConnection(url,id,pass);

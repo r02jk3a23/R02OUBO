@@ -51,6 +51,8 @@ public class Page2Servlet extends HttpServlet {
 						);
 			st1.setString(1, sNumA);
 			st1.setString(2, sNumB);
+			ResultSet rs = st1.executeQuery();
+			
 			String numa = sNumA;
 			int number = Integer.parseInt(numa);
 			int sum = 0;
@@ -58,7 +60,7 @@ public class Page2Servlet extends HttpServlet {
 				sum += number%10;
 				number /= 10;
 			}
-			ResultSet rs = st1.executeQuery();
+			
 			if(rs.next()==true||sum%9!=0) {
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1.jsp");
 				rd.forward(request, response);
