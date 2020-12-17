@@ -30,6 +30,7 @@ public class Page1fiveServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1five.jsp");
 		rd.forward(request, response);
+		
 	}
 
 }
