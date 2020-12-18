@@ -61,7 +61,12 @@ public class Page2Servlet extends HttpServlet {
 				number /= 10;
 			}
 			
-			if(rs.next()==true||sum%9!=0) {
+			if(rs.next()==true) {
+				request.setAttribute("flag", "a");
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1.jsp");
+				rd.forward(request, response);
+			}else if(sum%9!=0) {
+				request.setAttribute("flag", "b");
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1.jsp");
 				rd.forward(request, response);
 			}else {
