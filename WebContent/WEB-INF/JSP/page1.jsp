@@ -42,12 +42,12 @@ h2{
 
 <a href="" disabled>クリスマス</a>
 
-<form method="get" action="./page1-val">
-<a href="./page1-val">バレンタイン</a>
+<form method="get" action="./page1V">
+<a href="./page1V">バレンタイン</a>
 </form>
 
-<form method="get" action="./page1-spring">
-<a href="./page1-spring">新入学セール</a>
+<form method="get" action="./page1S">
+<a href="./page1S">新入学セール</a>
 </form>
 </body>
 </html>
