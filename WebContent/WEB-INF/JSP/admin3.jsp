@@ -12,6 +12,7 @@
 <form method="post" action="./admin4">
 7桁の数字A<input type="number" name="numa" placeholder="7桁の数字A" /><br/>
 7桁の数字B<input type="number" name="numb" placeholder="7桁の数字B" /><br/>
+商品<input type="number" name="syouhin" placeholder="例 ) 2等　ジャガイモ3年分" /><br/>
 <input type="submit" value="登録する" />
 
 </form>
