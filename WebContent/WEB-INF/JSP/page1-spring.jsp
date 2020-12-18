@@ -37,12 +37,12 @@ h2{
 <div style="text-align:center"><input type="submit" value="一緒にお祝いする🎉" /></div>
 </form>
 
-<form method="get" action="./page1">
-<a href="./page1">クリスマス</a>
+<form method="get" action="./page1X">
+<a href="./page1X">クリスマス</a>
 </form>
 
-<form method="get" action="./page1-val">
-<a href="./page1-val">バレンタイン</a>
+<form method="get" action="./page1V">
+<a href="./page1V">バレンタイン</a>
 </form>
 
 <a href="" disabled>新入学セール</a>

@@ -38,14 +38,14 @@ h2{
 <div style="text-align:center"><font color="BF1F3C">♡ </font><input type="submit" value="\ 思いを伝える /" /><font color="BF1F3C"> ♡</font></div>
 </form>
 
-<form method="get" action="./page1">
-<a href="./page1">クリスマス</a>
+<form method="get" action="./page1X">
+<a href="./page1X">クリスマス</a>
 </form>
 
 <a href="" disabled>バレンタイン</a>
 
-<form method="get" action="./page1-spring">
-<a href="./page1-spring">新入学セール</a>
+<form method="get" action="./page1S">
+<a href="./page1S">新入学セール</a>
 </form>
 </body>
 </html>
