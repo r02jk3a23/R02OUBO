@@ -1,6 +1,11 @@
 
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,9 +32,36 @@ public class page1V extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		final String driverName = "oracle.jdbc.driver.OracleDriver";
+		final String url = "jdbc:oracle:thin:@192.168.54.226:1521/orcl";
+		final String id = "OUBO";
+		final String pass = "TOUSEN";
+		
+		new java.util.Date();
+		
+		try {
+			Class.forName(driverName);
+			Connection connection=DriverManager.getConnection(url,id,pass);
+			PreparedStatement st;
+			st = connection.prepareStatement(
+					"select trunc(kigen-sysdate+1) as result from kigen"
+					);
+			 
+			ResultSet rs = st.executeQuery();//DBƒAƒNƒZƒX
+			rs.next();
+			String kigen = rs.getString("result");
+			request.setAttribute("Result", kigen);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1-val.jsp");
 		rd.forward(request, response);
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
