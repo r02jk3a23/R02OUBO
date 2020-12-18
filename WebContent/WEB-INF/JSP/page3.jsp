@@ -16,7 +16,12 @@ String sKigen = (String)request.getAttribute("KIGEN");
 <p>当選確認するにはメールアドレスを入力してください。
 <form method="get" action="page4" >
 <input type="email" name="email" />
-<input type="submit" value="確認する" />
+<input type="submit" value="確認する" /></br></br>
 </form>
+
+<form method="get" action="./winner">
+<a href="./winner">当選者確認</a>
+</form>
+
 </body>
 </html>
