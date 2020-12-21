@@ -1,6 +1,11 @@
 
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,8 +33,59 @@ public class ErrorServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1error.jsp");
- 		rd.forward(request, response);
+		final String driverName = "oracle.jdbc.driver.OracleDriver";
+		final String url = "jdbc:oracle:thin:@192.168.54.226:1521/orcl";
+		final String id = "OUBO";
+		final String pass = "TOUSEN";
+		
+		try {
+			Class.forName(driverName);
+			Connection connection=DriverManager.getConnection(url,id,pass);
+			PreparedStatement st = 
+					connection.prepareStatement(
+							"Select ceil(SYSDATE-kaisi) as kaisi From Kigen"
+						);
+			ResultSet rs = st.executeQuery();
+			rs.next();
+			String kaisi = rs.getString("kaisi");
+			if(kaisi.charAt(0)=='-') {
+				int K = Integer.parseInt(kaisi);
+				K = Math.abs(K);
+				//System.out.print(K);
+				request.setAttribute("K", K);
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1error.jsp");
+				rd.forward(request, response);
+				
+			}else {
+				RequestDispatcher rd = request.getRequestDispatcher("/page1");
+				rd.forward(request, response);
+				
+			}
+		}catch(SQLException e) {
+			System.out.println("SQLException");
+			response.getWriter().println("SQLException");
+			e.printStackTrace();
+			e.printStackTrace(response.getWriter());
+		} catch (ClassNotFoundException e) {
+			System.out.println("ClassNotFoundException");
+			response.getWriter().println("ClassNotFoundException");
+			e.printStackTrace();
+			e.printStackTrace(response.getWriter());
+		}
+
+		
+		
+		
+		/*
+		 * RequestDispatcher rd =
+		 * request.getRequestDispatcher("/WEB-INF/JSP/page1error.jsp");
+		 * rd.forward(request, response);
+		 */
+	}
+
+	private int abs(int k) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	/**

@@ -13,6 +13,7 @@
 	List<String[]> list = 
 		(List<String[]>)request.getAttribute("result");
 %>
+
 <table border=1>
 <TR>
 <TH>EMAIL</TH>

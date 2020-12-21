@@ -5,7 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>クリスマスセール抽選会</title>
-
+<%
+String Kigen = (String)request.getAttribute("Result");
+%>
+<%
+int num = Integer.parseInt(Kigen);
+%>
 <style>
 body{
 		background-color: #efefff; 
@@ -36,7 +41,17 @@ h2{
 メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" /><br/><br />
 数字A（7桁）　 <input type="number" name="numa" placeholder="7桁の数字A" /><br/><br />
 数字B（7桁） 　<input type="number" name="numb" placeholder="7桁の数字B" /><br/><br /><br /><br />
+
+<% 
+		if(num<=10){
+%>
+<h4 style="text-align:center">応募期限まであと<%=Kigen %>日</h4><br />
+<%
+		}
+%>
+
 <div style="text-align:center"><font color="DD4973">🎁</font><font color="93BDC7">🎁</font><input type="submit" value="\ 応募する /" /><font color="F2C744">🎁</font><font color="F29979">🎁</font></div>
+
 </form>
 
 
