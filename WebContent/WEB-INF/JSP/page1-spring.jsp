@@ -39,6 +39,7 @@ h2{
 メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" /><br/><br />
 数字A（7桁）　 <input type="number" name="numa" placeholder="7桁の数字A" /><br/><br />
 数字B（7桁） 　<input type="number" name="numb" placeholder="7桁の数字B" /><br/><br /><br /><br />
+
 <% 
 		if(num<=10){
 %>
@@ -46,7 +47,8 @@ h2{
 <%
 		}
 %>
-<div style="text-align:center"><input type="submit" value="一緒にお祝いする🎉" /></div>
+<div style="text-align:center"><font color="ff69b4">💐</font><input type="submit" value="\ 応募する /" /><font color="ff69b4">💐</font></div>
+
 </form>
 
 <form method="get" action="./page1X">

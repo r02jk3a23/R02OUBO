@@ -35,7 +35,7 @@ h2{
 <h2>仙台駅前第一デパート</h2>
 <h1 style="text-align:center"><font color="00693E">🎄</font><font color="d7c447">クリスマスセール抽選会</font><font color="00693E">🎄</font></h1>
 
-<h3 style="text-align:center">応募ページ</h3><br />
+<h2 style="text-align:center">応募ページ</h2><br />
 
 <form method="post" action="./page2" style="text-align:center">
 メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" /><br/><br />
@@ -50,7 +50,8 @@ h2{
 		}
 %>
 
-<div style="text-align:center"><font color="DD4973">🎁</font><font color="93BDC7">🎁</font><input type="submit" value="\ サンタさんにお願いする✉ /" /><font color="F2C744">🎁</font><font color="F29979">🎁</font></div>
+<div style="text-align:center"><font color="DD4973">🎁</font><font color="93BDC7">🎁</font><input type="submit" value="\ 応募する /" /><font color="F2C744">🎁</font><font color="F29979">🎁</font></div>
+
 </form>
 
 
