@@ -43,10 +43,10 @@ String dis=null;
 	if(kaisiflag!=null){
 		dis = "disabled";
 	}
-	if(flag=="a"){
+	if(flag.equals("a")){
 %>
 	<p>既に登録されている番号です。</p>
-<%} else if(flag=="b"){%>
+<%} else if(flag.equals("b")){%>
 	<p>不正な番号です。</p>
 <%}%>
 	
