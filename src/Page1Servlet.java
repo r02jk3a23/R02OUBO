@@ -50,6 +50,7 @@ public class Page1Servlet extends HttpServlet {
 			rs.next();
 			String kigen = rs.getString("result");
 			request.setAttribute("Result", kigen);
+			
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1.jsp");
 			rd.forward(request, response);
 			

@@ -37,18 +37,18 @@ h2{
 
 <% 
 int K = (int)request.getSession().getAttribute("K");
-String flag = (String)request.getAttribute("flag");
+String flag = (String)request.getSession().getAttribute("flag");
 String kaisiflag = (String)request.getAttribute("kaisiflag");
 String dis=null; 
 	if(kaisiflag!=null){
 		dis = "disabled";
 	}
 	if(flag.equals("a")){
-%>
-	<p>既に登録されている番号です。</p>
-<%} else if(flag.equals("b")){%>
-	<p>不正な番号です。</p>
-<%}%>
+		%>
+			<p>既に登録されている番号です。</p>
+		<%} else if(flag.equals("b")){%>
+			<p>不正な番号です。</p>
+		<%}%>
 	
 <form method="post" action="./page2" style="text-align:center">
 メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" <%=dis %>><br/><br />
