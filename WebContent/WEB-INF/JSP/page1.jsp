@@ -39,7 +39,7 @@ h2{
 
 <% 
 int K = (int)request.getSession().getAttribute("K");
-String flag = (String)request.getAttribute("flag");
+String flag = (String)request.getSession().getAttribute("flag");
 String kaisiflag = (String)request.getAttribute("kaisiflag");
 String dis=null; 
 	if(kaisiflag!=null){

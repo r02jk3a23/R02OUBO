@@ -68,7 +68,7 @@ public class IndexServlet extends HttpServlet {
 				String diff = rs1.getString("DIFF");
 				if(diff.charAt(0)=='-') {
 					request.getSession().setAttribute("K", -1);
-					request.setAttribute("flag", "");
+					request.getSession().setAttribute("flag", "");
 					RequestDispatcher rd = request.getRequestDispatcher("/page1");
 					rd.forward(request, response);
 					
