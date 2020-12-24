@@ -15,7 +15,7 @@
 <%
 	}
 %>
-<form method="post" action="./page2five">
+<form method="post" action="./page1_2five">
 応募者のメールアドレス<input type="email" name="email" placeholder="メールアドレスを入力" /><br/>
 <%for(int i=0;i<5;i++){ %>
 番号<%= i+1%><br>

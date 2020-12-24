@@ -41,22 +41,46 @@ public class IndexServlet extends HttpServlet {
 		try {
 			Class.forName(driverName);
 			Connection connection=DriverManager.getConnection(url,id,pass);
+			
 			PreparedStatement st = 
 					connection.prepareStatement(
-							"Select SYSDATE-KIGEN as DIFF From Kigen"
+							"Select ceil(SYSDATE-kaisi) as kaisi From Kigen"
 						);
 			ResultSet rs = st.executeQuery();
 			rs.next();
-			String diff = rs.getString("DIFF");
-			if(diff.charAt(0)=='-') {
-				RequestDispatcher rd = request.getRequestDispatcher("/page1");
+			String kaisi = rs.getString("kaisi");
+			if(kaisi.charAt(0)=='-') {
+				int K = Integer.parseInt(kaisi);
+				K = Math.abs(K);
+				//System.out.print(K);
+				request.getSession().setAttribute("K", K);
+				request.getSession().setAttribute("kaisiflag", "1");
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/JSP/page1.jsp");
 				rd.forward(request, response);
 				
 			}else {
-				RequestDispatcher rd = request.getRequestDispatcher("/page3");
-				rd.forward(request, response);
+				PreparedStatement st1 = 
+						connection.prepareStatement(
+								"Select SYSDATE-KIGEN as DIFF From Kigen"
+							);
+				ResultSet rs1 = st1.executeQuery();
+				rs1.next();
+				String diff = rs1.getString("DIFF");
+				if(diff.charAt(0)=='-') {
+					request.getSession().setAttribute("K", -1);
+					request.setAttribute("flag", "");
+					RequestDispatcher rd = request.getRequestDispatcher("/page1");
+					rd.forward(request, response);
+					
+				}else {
+					RequestDispatcher rd = request.getRequestDispatcher("/page3");
+					rd.forward(request, response);
+					
+				}
 				
 			}
+			
+			
 		}catch(SQLException e) {
 			System.out.println("SQLException");
 			response.getWriter().println("SQLException");

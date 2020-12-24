@@ -35,12 +35,27 @@ h2{
 <h2>仙台駅前第一デパート</h2>
 <h1 style="text-align:center"><font color="00693E">🎄</font><font color="d7c447">クリスマスセール抽選会</font><font color="00693E">🎄</font></h1>
 
-<h3 style="text-align:center">応募ページ</h3><br />
+<h2 style="text-align:center">応募ページ</h2><br />
 
-<form method="post" action="./page2" style="text-align:center">
-メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" /><br/><br />
-数字A（7桁）　 <input type="number" name="numa" placeholder="7桁の数字A" /><br/><br />
-数字B（7桁） 　<input type="number" name="numb" placeholder="7桁の数字B" /><br/><br /><br /><br />
+<% 
+int K = (int)request.getSession().getAttribute("K");
+String flag = (String)request.getAttribute("flag");
+String kaisiflag = (String)request.getAttribute("kaisiflag");
+String dis=null; 
+	if(kaisiflag!=null){
+		dis = "disabled";
+	}
+	if(flag.equals("a")){
+%>
+	<p>既に登録されている番号です。</p>
+<%} else if(flag.equals("b")){%>
+	<p>不正な番号です。</p>
+<%}%>
+
+<form method="post" action="./page1_2" style="text-align:center">
+メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" <%=dis %>><br/><br />
+数字A（7桁）　 <input type="number" name="numa" placeholder="7桁の数字A" <%=dis %>><br/><br />
+数字B（7桁） 　<input type="number" name="numb" placeholder="7桁の数字B" <%=dis %>><br/><br /><br /><br />
 
 <% 
 		if(num<=10){
@@ -49,8 +64,12 @@ h2{
 <%
 		}
 %>
+<%if(K>=0){ %>
+	<div style="text-align:center">開始まであと<%= K %>日です</div><br/>
+<%} %>
 
-<div style="text-align:center"><font color="DD4973">🎁</font><font color="93BDC7">🎁</font><input type="submit" value="\ サンタさんにお願いする✉ /" /><font color="F2C744">🎁</font><font color="F29979">🎁</font></div>
+<div style="text-align:center"><font color="DD4973">🎁</font><font color="93BDC7">🎁</font><input type="submit" value="\ 応募する /" <%=dis %>><font color="F2C744">🎁</font><font color="F29979">🎁</font></div>
+
 </form>
 
 
@@ -63,5 +82,7 @@ h2{
 <form method="get" action="./page1S">
 <a href="./page1S">新入学セール</a>
 </form>
+<p><a href="./page1five">課題5</a></p>
+<p><a href="./admin0">管理者画面確認</a></p>
 </body>
 </html>

@@ -34,11 +34,27 @@ h2{
 <h2>仙台駅前第一デパート</h2>
 <h1 style="text-align:center"><font color="F25E6B">🌸</font><font color="fffacd">新入学セール抽選会</font><font color="F25E6B">🌸</font></h1>
 <h2 style="text-align:center">受付ページ</h2><br />
+
+<% 
+int K = (int)request.getSession().getAttribute("K");
+String flag = (String)request.getAttribute("flag");
+String kaisiflag = (String)request.getAttribute("kaisiflag");
+String dis=null; 
+	if(kaisiflag!=null){
+		dis = "disabled";
+	}
+	if(flag.equals("a")){
+%>
+	<p>既に登録されている番号です。</p>
+<%} else if(flag.equals("b")){%>
+	<p>不正な番号です。</p>
+<%}%>
 	
 <form method="post" action="./page2" style="text-align:center">
-メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" /><br/><br />
-数字A（7桁）　 <input type="number" name="numa" placeholder="7桁の数字A" /><br/><br />
-数字B（7桁） 　<input type="number" name="numb" placeholder="7桁の数字B" /><br/><br /><br /><br />
+メールアドレス <input type="email" name="email" placeholder="メールアドレスを入力" <%=dis %>><br/><br />
+数字A（7桁）　 <input type="number" name="numa" placeholder="7桁の数字A" <%=dis %>><br/><br />
+数字B（7桁） 　<input type="number" name="numb" placeholder="7桁の数字B" <%=dis %>><br/><br /><br /><br />
+
 <% 
 		if(num<=10){
 %>
@@ -46,11 +62,15 @@ h2{
 <%
 		}
 %>
-<div style="text-align:center"><input type="submit" value="一緒にお祝いする🎉" /></div>
+<%if(K>=0){ %>
+	<div style="text-align:center">開始まであと<%= K %>日です</div><br/>
+<%} %>
+<div style="text-align:center"><font color="ff69b4">💐</font><input type="submit" value="\ 応募する /" <%=dis %>><font color="ff69b4">💐</font></div>
+
 </form>
 
-<form method="get" action="./page1X">
-<a href="./page1X">クリスマス</a>
+<form method="get" action="./page1">
+<a href="./page1">クリスマス</a>
 </form>
 
 <form method="get" action="./page1V">
